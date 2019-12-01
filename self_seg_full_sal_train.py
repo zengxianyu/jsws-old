@@ -6,7 +6,7 @@ import torch
 import sys
 from tqdm import tqdm
 from models import JLSModel
-from datasets import VOC, Folder
+from datasets import VOCMS, VOC, Folder
 from evaluate_seg import evaluate_iou
 import json
 import os
@@ -14,9 +14,9 @@ import os
 
 from options.train_options import TrainOptions
 opt = TrainOptions()  # set CUDA_VISIBLE_DEVICES before import torch
-opt.parser.set_defaults(model='JLSFCN')
-opt.parser.set_defaults(name='jlsfcn_dense169')
-opt.parser.set_defaults(phase='train1')
+opt.parser.set_defaults(model='JLSDeepLab')
+opt.parser.set_defaults(name='jlsfcn_res101')
+opt.parser.set_defaults(phase='train2')
 opt = opt.parse()
 
 #home = os.path.expanduser("~")
@@ -24,6 +24,7 @@ home = "."
 
 voc_train_img_dir = '%s/data/datasets/segmentation_Dataset/VOCdevkit/VOC2012/JPEGImages'%home
 voc_train_gt_dir = '%s/data/datasets/segmentation_Dataset/VOCdevkit/VOC2012/SegmentationClassAug'%home
+voc_train_syn_dir = '%s/segggFiles/jlsfcn_res101_z/syn_train_crf'%home
 
 voc_val_img_dir = '%s/data/datasets/segmentation_Dataset/VOCdevkit/VOC2012/JPEGImages'%home
 voc_val_gt_dir = '%s/data/datasets/segmentation_Dataset/VOCdevkit/VOC2012/SegmentationClass'%home
@@ -54,7 +55,7 @@ c_output = 21
 
 
 voc_train_loader = torch.utils.data.DataLoader(
-    VOC(voc_train_img_dir, voc_train_gt_dir, voc_train_split,
+    VOCMS(voc_train_img_dir, [voc_train_gt_dir, voc_train_syn_dir], voc_train_split,
            crop=0.9, flip=True, rotate=None, size=opt.imageSize,
            mean=opt.mean, std=opt.std, training=True),
     batch_size=opt.batchSize, shuffle=True, num_workers=4, pin_memory=True)
@@ -82,7 +83,6 @@ model = JLSModel(opt, c_output, voc_train_loader.dataset.ignored_idx)
 
 def train(model):
     print("============================= TRAIN ============================")
-    # model.load('best')
     model.switch_to_train()
 
     voc_train_iter = iter(voc_train_loader)
@@ -109,9 +109,11 @@ def train(model):
         if voc_it >= len(voc_train_loader):
             voc_train_iter = iter(voc_train_loader)
             voc_it = 0
-        img, gt = voc_train_iter.next()
+        img, gts = voc_train_iter.next()
         voc_it += 1
 
+        syn = gts[1]
+        gt = gts[0]
         bsize = img.size(0)
         gt[gt == -1] = c_output
         gt = torch.zeros(bsize, c_output + 1, opt.imageSize, opt.imageSize).scatter(1, gt.unsqueeze(1), 1)
@@ -120,7 +122,7 @@ def train(model):
         gt = gt[:, 1:]
         gt[gt>0] = 1
 
-        model.set_input(img, gt)
+        model.set_input(img, gt, syn)
         model.forward()
         model.backward_cls()
         model.optimizer.step()

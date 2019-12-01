@@ -174,6 +174,10 @@ class JLSModel(_BaseModel):
         loss_var += self.criterion_cls(self.pred_cls_fc, self.targets)
 
         pred_cls2 = self.net_cls(self.input)
+        """
+        Zhang, Ying, et al. "Deep mutual learning." Proceedings of the IEEE Conference on Computer Vision and Pattern
+        Recognition. 2018.
+        """
         loss_aux = self.criterion_cls(pred_cls2, self.targets)
         loss_aux += F.kl_div(F.logsigmoid(self.pred_cls_big), F.sigmoid(pred_cls2).detach())
         loss_aux += F.kl_div(F.logsigmoid(pred_cls2), F.sigmoid(self.pred_cls_big).detach())
@@ -196,6 +200,10 @@ class JLSModel(_BaseModel):
         loss_var += self.criterion_cls(self.pred_cls_fc, self.targets)
 
         pred_cls2 = self.net_cls(self.input)
+        """
+        Zhang, Ying, et al. "Deep mutual learning." Proceedings of the IEEE Conference on Computer Vision and Pattern
+        Recognition. 2018.
+        """
         loss_aux = self.criterion_cls(pred_cls2, self.targets)
         loss_aux += F.kl_div(F.logsigmoid(pred_cls_big), F.sigmoid(pred_cls2).detach())
         loss_aux += F.kl_div(F.logsigmoid(pred_cls2), F.sigmoid(pred_cls_big).detach())
