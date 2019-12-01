@@ -20,6 +20,7 @@ opt = opt.parse()
 
 #home = os.path.expanduser("~")
 home = "."
+label = "" # label of model parameters to load
 
 voc_train_img_dir = '%s/data/datasets/segmentation_Dataset/VOCdevkit/VOC2012/JPEGImages'%home
 voc_train_gt_dir = '%s/data/datasets/segmentation_Dataset/VOCdevkit/VOC2012/SegmentationClassAug'%home
@@ -88,7 +89,7 @@ def test_sal(model):
 
 
 model = JLSModel(opt, c_output, voc_train_loader.dataset.ignored_idx)
-model.load('best')
+model.load(label)
 
 
 miou = test(model)

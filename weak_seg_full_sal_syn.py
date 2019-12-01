@@ -31,6 +31,7 @@ voc_val_gt_dir = '%s/data/datasets/segmentation_Dataset/VOCdevkit/VOC2012/Segmen
 voc_train_split = '%s/data/datasets/segmentation_Dataset/VOCdevkit/VOC2012/ImageSets/Segmentation/argtrain.txt'%home
 voc_val_split = '%s/data/datasets/segmentation_Dataset/VOCdevkit/VOC2012/ImageSets/Segmentation/val.txt'%home
 
+label = "" # label of model parameters to load
 
 c_output = 21
 
@@ -86,7 +87,7 @@ def syn(model):
 
 
 model = JLSModel(opt, c_output, voc_train_loader.dataset.ignored_idx)
-model.load('best')
+model.load(label)
 
 
 syn(model)

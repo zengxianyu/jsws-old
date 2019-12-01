@@ -37,6 +37,8 @@ sal_val_gt_dir = '%s/data/datasets/saliency_Dataset/ECSSD/masks'%home
 
 c_output = 21
 
+label = "" # label of model parameters to load
+
 
 voc_train_loader = torch.utils.data.DataLoader(
     VOC(voc_train_img_dir, voc_train_gt_dir, voc_train_split,
@@ -89,7 +91,7 @@ def test_sal(model):
     return model.performance
 
 model = JLSModel(opt, c_output, voc_train_loader.dataset.ignored_idx)
-model.load('_best')
+model.load(label)
 
 
 test(model)

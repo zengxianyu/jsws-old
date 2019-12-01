@@ -49,9 +49,18 @@ self_seg_full_sal_train.py
 ```
 
 ## Test
+stage 1 model:
+```
+weak_seg_full_sal_test.py
+```
+
+stage 2 model
 ```
 self_seg_full_sal_test.py
 ```
+By default it calls the function ```test(...)``` to test on segmentation task
+
+Change to call the function ```test_sal(...)``` to test on saliency task
 
 ## Saliency results
 
