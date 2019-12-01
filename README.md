@@ -1,6 +1,11 @@
 # jsws
 Code for the paper is coming soon
 
+## Environment
+```
+conda env create --file=pytorch_environments.yml
+```
+
 ## Prepare Data
 Required training data: 
 * PASCAL VOC 2012 segmentation dataset (including 10,582 extra training samples introduced by Hariharan et al [15]). We only use image-level class labels of them. Put the folder ```VOC2012``` in ```data/datasets/segmentation_Dataset/VOCdevkit/```
