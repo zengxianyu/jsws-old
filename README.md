@@ -36,9 +36,9 @@ self_seg_full_sal_train.py
 ```
 
 ## Test
-"""
+```
 self_seg_full_sal_test.py
-"""
+```
 
 ## Saliency results
 
