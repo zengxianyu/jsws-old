@@ -7,14 +7,14 @@ Required training data:
 * DUTS saliency dataset training split
 * (Optional) ECSSD dataset for test and validation on saliency task
 
-You can find them on their official sites or using """download.sh""" to dowload from [an unofficial download place](http://ok.i68h.cn:8000/) that I provide. 
+You can find them on their official sites or using ```download.sh``` to dowload from [an unofficial download place](http://ok.i68h.cn:8000/) that I provide. 
 
 ## Train stage 1
 train using image-level class labels and saliency ground-truth:
 
-"""
+```shell
 weak_seg_full_sal_train.py
-"""
+```
 
 Open http://host ip:8000/savefiles/jlsfcn_dense169.html in a browser for visualizing training process. 
 
@@ -25,15 +25,15 @@ train a more complex model using the prediction of the model trained in the stag
 
 1. make training data
 
-"""
+```
 weak_seg_full_sal_syn.py
-"""
+```
 
 2. train
 
-"""
+```
 self_seg_full_sal_train.py
-"""
+```
 
 ## Test
 """
