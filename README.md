@@ -3,7 +3,7 @@ Code for the paper is coming soon
 
 ## Prepare Data
 Required training data: 
-* PASCAL VOC 2012 segmentation dataset (including 10,582 extra training samples introduced by Hariharan et al [1]). We only use image-level class labels of them. Put the folder ```VOC2012``` in ```data/datasets/segmentation_Dataset/VOCdevkit/```
+* PASCAL VOC 2012 segmentation dataset (including 10,582 extra training samples introduced by Hariharan et al [15]). We only use image-level class labels of them. Put the folder ```VOC2012``` in ```data/datasets/segmentation_Dataset/VOCdevkit/```
 * DUTS saliency dataset training split. Put the folder ```DUT-train``` in ```data/datasets/saliency_Dataset/```
 * (Optional) ECSSD dataset for test and validation on saliency task.  Put the folder ```ECSSD``` in ```data/datasets/saliency_Dataset/```
 
@@ -43,3 +43,13 @@ self_seg_full_sal_test.py
 ## Saliency results
 
 [download saliency maps](http://ok.i68h.cn:8000/JLWS-sal.zip) on datasets ECSSD, PSACALS, HKU-IS, DUT-OMRON, DUTS-test, SOD
+
+## Citation
+```
+@inproceedings{zeng2019joint,
+  title={Joint learning of saliency detection and weakly supervised semantic segmentation},
+  author={Zeng, Yu and Zhuge, Yunzhi and Lu, Huchuan and Zhang, Lihe},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
+  year={2019}
+}
+```
