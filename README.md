@@ -64,7 +64,7 @@ Change to call the function ```test_sal(...)``` to test on saliency task
 
 ## Saliency results
 
-[download saliency maps](http://ok.i68h.cn:8000/JLWS-sal.zip) on datasets ECSSD, PSACALS, HKU-IS, DUT-OMRON, DUTS-test, SOD
+[download saliency maps](http://ok.i68h.cn:8000/JLWS-sal.zip) on datasets ECSSD, PSACALS, HKU-IS, DUT-OMRON, DUTS-test, SOD; [Google Drive](https://drive.google.com/open?id=1KqO8bhJn2StXGblBL_9V6-yM2CSOBNsz); [One Drive](https://1drv.ms/u/s!AqVkBGUQ01XGjxiqc5pdH20yPXz4?e=WzCpBW)
 
 ## Citation
 ```
