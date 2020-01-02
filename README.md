@@ -20,7 +20,7 @@ Required training data:
 * DUTS saliency dataset training split. Put the folder ```DUT-train``` in ```data/datasets/saliency_Dataset/```
 * (Optional) ECSSD dataset for test and validation on saliency task.  Put the folder ```ECSSD``` in ```data/datasets/saliency_Dataset/```
 
-You can find them on their official sites or use ```download.sh``` to dowload from [an unofficial download place](http://ok.i68h.cn:8000/) that I provide. 
+You can find them on their official sites or use ```download.sh``` to dowload from [an unofficial download place](http://ok.biu886.com:8000/) that I provide. 
 
 ## Train stage 1
 train using image-level class labels and saliency ground-truth:
@@ -64,7 +64,7 @@ Change to call the function ```test_sal(...)``` to test on saliency task
 
 ## Saliency results
 
-[download saliency maps](http://ok.i68h.cn:8000/JLWS-sal.zip) on datasets ECSSD, PSACALS, HKU-IS, DUT-OMRON, DUTS-test, SOD; [Google Drive](https://drive.google.com/open?id=1KqO8bhJn2StXGblBL_9V6-yM2CSOBNsz); [One Drive](https://1drv.ms/u/s!AqVkBGUQ01XGjxiqc5pdH20yPXz4?e=WzCpBW)
+[download saliency maps](http://ok.biu886.com:8000/JLWS-sal.zip) on datasets ECSSD, PSACALS, HKU-IS, DUT-OMRON, DUTS-test, SOD; [Google Drive](https://drive.google.com/open?id=1KqO8bhJn2StXGblBL_9V6-yM2CSOBNsz); [One Drive](https://1drv.ms/u/s!AqVkBGUQ01XGjxiqc5pdH20yPXz4?e=WzCpBW)
 
 ## Citation
 ```
