@@ -16,11 +16,10 @@ conda env create --file=pytorch_environments.yml
 
 ## Prepare Data
 Required training data: 
-* PASCAL VOC 2012 segmentation dataset (including 10,582 extra training samples introduced by Hariharan et al [15]). We only use image-level class labels of them. Put the folder ```VOC2012``` in ```data/datasets/segmentation_Dataset/VOCdevkit/```
+* PASCAL VOC 2012 segmentation dataset. We only use image-level class labels of them. Put the folder ```VOC2012``` in ```data/datasets/segmentation_Dataset/VOCdevkit/```. I include 10,582 extra training samples introduced by Hariharan et al [15]; unzip SegmentationClassAug.zip and put it in VOCdevkit
 * DUTS saliency dataset training split. Put the folder ```DUT-train``` in ```data/datasets/saliency_Dataset/```
 * (Optional) ECSSD dataset for test and validation on saliency task.  Put the folder ```ECSSD``` in ```data/datasets/saliency_Dataset/```
 
-You can find them on their official sites or use ```download.sh``` to dowload from [an unofficial download place](http://ok.biu886.com:8000/) that I provide. 
 
 ## Train stage 1
 train using image-level class labels and saliency ground-truth:
