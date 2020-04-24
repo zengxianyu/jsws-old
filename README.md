@@ -41,7 +41,7 @@ train a more complex model using the prediction of the model trained in the stag
 weak_seg_full_sal_syn.py
 ```
 
-2. train
+2. train (optional: processing by [densecrf](https://github.com/lucasb-eyer/pydensecrf))
 
 ```
 self_seg_full_sal_train.py
