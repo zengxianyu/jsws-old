@@ -4,7 +4,7 @@ Code for the paper is coming soon
 ## Environment
 clone repo:
 ```
-git clone https://github.com/zengxianyu/jsws.git
+git clone https://github.com/zengxianyu/jsws-old.git
 git submodule init 
 git submodule update
 ```
